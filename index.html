@@ -73,8 +73,18 @@
         let startTime, timerInterval;
 
         function generateQuestion() {
-            num1 = Math.floor(Math.random() * 10) + 1;
-            num2 = Math.floor(Math.random() * 10) + 1;
+            let difficulty = Math.random();
+            if (difficulty < 0.4) {
+                num1 = Math.floor(Math.random() * 10) + 1;
+                num2 = Math.floor(Math.random() * 10) + 1;
+            } else if (difficulty < 0.7) {
+                num1 = Math.floor(Math.random() * 90) + 10;
+                num2 = Math.floor(Math.random() * 90) + 10;
+            } else {
+                num1 = Math.floor(Math.random() * 900) + 100;
+                num2 = Math.floor(Math.random() * 900) + 100;
+            }
+            
             let operators = ['+', '-', '*', '/'];
             operator = operators[Math.floor(Math.random() * 4)];
             
